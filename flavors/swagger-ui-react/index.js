@@ -11,11 +11,10 @@ export default class SwaggerUI extends React.Component {
   
   componentDidMount() {
     const ui = swaggerUIConstructor({
-      spec: this.props.spec,
-      url: this.props.url,
-      requestInterceptor: this.requestInterceptor,
-      responseInterceptor: this.responseInterceptor,
+      ...this.props,
       onComplete: this.onComplete,
+      dom_id: undefined,
+      domNode: undefined,
     })
 
     this.system = ui
@@ -48,20 +47,6 @@ export default class SwaggerUI extends React.Component {
         this.system.specActions.updateSpec(this.props.spec)
       }
     }
-  }
-
-  requestInterceptor = (req) => {
-    if (typeof this.props.requestInterceptor === "function") {
-      return this.props.requestInterceptor(req)
-    }
-    return req
-  }
-
-  responseInterceptor = (res) => {
-    if (typeof this.props.responseInterceptor === "function") {
-      return this.props.responseInterceptor(res)
-    }
-    return res
   }
 
   onComplete = () => {

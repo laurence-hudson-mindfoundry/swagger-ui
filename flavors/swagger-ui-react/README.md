@@ -65,6 +65,10 @@ or a Promise that resolves to a request object.
 A function that accepts a response object, and returns either a response object
 or a Promise that resolves to a response object.
 
+### Additional props
+
+Initial values for any parameter listed in https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/, excluding `domNode` & `domId`.
+
 ## Limitations
 
 * Not all configuration bindings are available.
